@@ -6,9 +6,7 @@ Task runner for the 21st century. YML config. Shell commands. Sync/async tasks. 
 
 ## Motivation
 
-> Let's make it straight. There is a lot of completion so what's the reason of creating eat another task runner?
-
-There are a lot of solutions but not too much really satisfying (if there is at all). It leads to the situation where a huge amount of teams just use as a task runner something that's not really a task runner like `make` or `npm`. Or something really heavy weighted for very simple tasks. It relatively works but I believe we could do better.
+A huge amount of teams uses as a task runner something that's not really intended for it like `make` or `npm`. Or something really heavy weighted for very simple tasks. It partially works but we definitely can do better.
 
 ## Features
 
