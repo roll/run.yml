@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/Version-v0.2-orange.svg)](https://github.com/goodread/goodread#changelog)
 
-Task runner for the 21st century. YML config. Shell commands. Sync/async tasks. And much more.
+Task runner for the 21st century. Lightweight and powerful. YML config. Shell commands. Sync/async tasks. And much more.
 
 ## Motivation
 
