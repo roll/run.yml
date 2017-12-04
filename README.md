@@ -29,7 +29,7 @@ A huge amount of teams uses as a task runner something that's not really intende
 
 # It's just an environment variable
 # It will be available for all tasks
-VERSION: head -n 1 $PACKAGE/VERSION
+VERSION: head -n 1 run/VERSION
 RUNVARS: echo .env  # dotenv
 
 
