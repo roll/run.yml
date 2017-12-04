@@ -492,6 +492,12 @@ _run()
 complete -F _run run
 complete -F _run r # if you use an alias "r=run"
 ```
+Now you could be able to use `Tab` to complete run tasks and subtasks:
+
+```shell
+$ run t[TAB] # use task autocompletion
+$ run task s[TAB] # use subtask autocompletion
+```
 
 ## Contributing
 
