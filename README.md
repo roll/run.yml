@@ -115,7 +115,15 @@ $ run task # run task
 $ run VARIABLE # print variable
 ````
 
-Probably the most important thing you need to now about `run.yml` file that there is no any magic in commands interpretation. Everything from the right side will be executed as it is in the current environment.
+The `run.yml` file could contain second YML document with general `run` options. This document should be a dictionary of keys and values:
+
+```yml
+task:
+  - command1
+  - command2
+---
+streamline: true
+```
 
 ### Variable
 
@@ -134,7 +142,7 @@ It's important to understand that unlike `make` after variable's command executi
 $ run VARIABLE # print variable
 ```
 
-When we "run" a variable it always happens in a silent mode (no `run`'s log messages).
+When we "run" a variable it always happens in a quiet mode. It means there is no `run`'s log messages and other complimentary information.
 
 ### Task
 
@@ -150,7 +158,7 @@ task2:
   - command2
 ```
 
-Behaviour is exactly what you could expect. This format is used by many of CI-services like Travis or CircleCI.
+Behaviour is exactly what you could expect. This format is used by many of CI-services like Travis or CircleCI. Probably the most important thing about `run.yml` that there is no any magic in right-side command interpretation. It always used as it is:
 
 ```shell
 $ run task1 # run single task
@@ -492,12 +500,31 @@ _run()
 complete -F _run run
 complete -F _run r # if you use an alias "r=run"
 ```
-Now you could be able to use `Tab` to complete run tasks and subtasks:
+
+### General options and arguments
+
+As mentioned in the `run.yml` section this file could contain general `run` options. It could be related to an execution process, optimization or other `run` details:
+
+```yml
+# Tasks
+
+task:
+  - command1
+  - command2
+---
+
+# Options
+
+streamline: true
+```
+
+Also for CLI calls general arguments could be passed using `--run-<argument>` prefix:
 
 ```shell
-$ run t[TAB] # use task autocompletion
-$ run task s[TAB] # use subtask autocompletion
+$ run --run-path configs/run.yml
 ```
+
+For now there are no offically supported options and CLI arguments. But concrete implementations could provide it as a provisional API.
 
 ## Contributing
 
