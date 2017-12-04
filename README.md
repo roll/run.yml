@@ -240,9 +240,44 @@ $ run task +subtask2 # run command1 and command2
 
 Here we've used one of three task calling modifiers. It's a plus sign to say that we want to include optional subtask to the task execution plan.
 
+### Quiet task/subtask
+
+By default for tasks `run` will print some high-level logging information about launching commands etc. Consider a task:
+
+```yml
+task:
+  - command
+```
+
+Running it we could see:
+
+```shell
+$ run task
+[run] Prepared "RUNARGS="
+[run] Launched "command"
+command output
+[run] Finished in 0.272 seconds
+```
+
+To prevent the logging we use an exclamation point at the task name end (similiar to `@` modifier in `make`):
+
+```yml
+task!:
+  - command
+```
+
+In this case `run` will not emit any complimentary information:
+
+```shell
+$ run task
+command output
+```
+
+Note that variables are always quiet.
+
 ### Cherry-picking subtasks
 
-We just have used a plus sign to enable optional subtask execution. There are two other CLI modifiers to filter and pick subtasks. It's a equal sign and a minus sign. Let's see on example:
+In the `optional subtask` section we have just used a plus sign to enable optional subtask execution. There are two other CLI modifiers to filter and pick subtasks. It's a equal sign and a minus sign. Let's see on example:
 
 ```yml
 task:
@@ -299,7 +334,13 @@ A technique named `dotenv` is a nifty way to load a list of variables (often sec
 RUNVARS: echo .env
 ```
 
-Here we tell to `run` that variables should be read from the `.env` file. Read more about `dotenv` for example here - https://github.com/theskumar/python-dotenv.
+Here we tell to `run` that variables should be read from the `.env` file. Because as usual the right side is just a normal shell command we could set it dynamically:
+
+```yml
+RUNVARS: echo .env_${ENV_TYPE}
+```
+
+Read more about `dotenv` for example here - https://github.com/theskumar/python-dotenv.
 
 ### Task descriptions
 
@@ -412,32 +453,6 @@ command1 $RUNARGS
 ```
 
 One of the most important things here is an execution plan allowing us to understand what exact commands will be executed.
-
-### Running silently
-
-By default for tasks `run` will print some high-level logging information about launching commands etc. Consider a task:
-
-```yml
-task:
-  - command
-```
-
-Running it we could see:
-
-```shell
-$ run task
-[run] Prepared "RUNARGS="
-[run] Launched "command"
-command output
-[run] Finished in 0.272 seconds
-```
-
-To prevent the logging we use an exclamation point:
-
-```shell
-$ run task !
-command output
-```
 
 ### Abbreviations
 
