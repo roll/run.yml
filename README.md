@@ -47,7 +47,7 @@ pandoc:
 # This task will be executed in parallel (fast)
 # But output will preserve commands order (readable)
 (test):
- lint: eslint --no-ignore
+ lint!: eslint --no-ignore
  unit: NODE_ENV=testing mocha $RUNARGS
 
 
@@ -69,7 +69,6 @@ pandoc:
 $ run # list tasks
 $ run test # run task
 $ run test ? # print task help
-$ run test ! # run task silently
 $ run test unit # run subtask
 $ run test unit --debug # pass arguments to the target command
 $ run test --debug # note $RUNARGS to specify command for arguments
