@@ -501,6 +501,13 @@ complete -F _run run
 complete -F _run r # if you use an alias "r=run"
 ```
 
+Now you could be able to use `Tab` to complete run tasks and subtasks:
+
+```shell
+$ run t[TAB] # use task autocompletion
+$ run task s[TAB] # use subtask autocompletion
+```
+
 ### General options and arguments
 
 As mentioned in the `run.yml` section this file could contain general `run` options. It could be related to an execution process, optimization or other `run` details:
