@@ -125,25 +125,6 @@ task:
 faketty: true
 ```
 
-### Variable
-
-A variable allows to save a command output into an environment variable. This environment variable could be used in any tasks below:
-
-```yml
-VARIABLE: command
-
-# Use variable in tasks
-task: echo $VARIABLE
-```
-
-It's important to understand that unlike `make` after variable's command execution it becomes just a normal environment variable that could be used on a general basis.
-
-```shell
-$ run VARIABLE # print variable
-```
-
-When we "run" a variable it always happens in a quiet mode. It means there is no `run`'s log messages and other complimentary information.
-
 ### Task
 
 The main actor is the whole system - a task. It could be associated with a single command or uses multiple commands:
@@ -166,6 +147,25 @@ $ run task2 # run composite task
 ```
 
 In case of a failure it will exit with a return code `1` otherwise with a return code `0`. It's tru for any `run` CLI call.
+
+### Variable
+
+A variable allows to save a command output into an environment variable. This environment variable could be used in any tasks below:
+
+```yml
+VARIABLE: command
+
+# Use variable in tasks
+task: echo $VARIABLE
+```
+
+It's important to understand that unlike `make` after variable's command execution it becomes just a normal environment variable that could be used on a general basis.
+
+```shell
+$ run VARIABLE # print variable
+```
+
+When we "run" a variable it always happens in a quiet mode. It means there is no `run`'s log messages and other complimentary information.
 
 ### Parallel task
 
