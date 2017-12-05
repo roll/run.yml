@@ -122,7 +122,7 @@ task:
   - command1
   - command2
 ---
-streamline: true
+faketty: true
 ```
 
 ### Variable
@@ -522,7 +522,7 @@ task:
 
 # Options
 
-streamline: true
+faketty: true
 ```
 
 Also for CLI calls general arguments could be passed using `--run-<argument>` prefix:
