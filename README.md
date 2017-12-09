@@ -518,6 +518,7 @@ As mentioned in the `run.yml` section this file could contain general `run` opti
 task:
   - command1
   - command2
+
 ---
 
 # Options
